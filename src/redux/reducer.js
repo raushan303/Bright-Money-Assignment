@@ -1,10 +1,9 @@
 import { data } from '../data';
 
 export default function Reducer(state = data, { type, payload }) {
-  console.log(payload);
   switch (type) {
     case 'addBill':
-      return [...state, payload.data];
+      return [payload.data, ...state];
     case 'editBill':
       return state.map((obj) => {
         if (obj.id === payload.data.id) return payload.data;
